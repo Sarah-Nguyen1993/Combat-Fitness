@@ -63,7 +63,7 @@ $(document).ready(function () {
             $("<h2>").text(title),
             $("<p>").text("Preparation Time: " + readyInMinutes + " minutes"),
             $("<p>").text("Serving: " + servings),
-            $("<p>").append(`<a href = '${sourceUrl}', target = '_blank'>Recipe`),
+            $("<p>").append(`<a href = '${sourceUrl}', target = '_blank' style="color: white">Recipe`),
             $(`<button class ='btn btn-default bg-white save-btn'id =${meals.indexOf(meal)} >`).text("Save"),
             $("<hr>")
           )
