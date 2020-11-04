@@ -131,39 +131,30 @@
             <div class="col-md-6">
                 <div class="jumbotron jumbotron-fluid">
                     <div class="container">
-                        <h1 class="display-4">Daily Routine</h1>
-                        <p class="lead">Update your profile with your daily routine! Add your Goal for today as well as
-                            the workouts your performed and the meals you ate below! </p>
-                        <h3>Todays Goal</h3>
-                        <div class="input-group">
-                            <textarea class="form-control" id="goaltext" aria-label="With textarea"></textarea>
-                        </div>
-                        <br>
-                        <button type="button" id="goalsave" class="btn btn-secondary btn-sm">Save!</button>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Workouts Performed Today</div>
-                            <div class="card-body">
-                                <div class="input-group">
-                                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-secondary btn-sm">Save!</button>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
-                            <div class="card-header">Meals Eaten Today</div>
-                            <div class="card-body">
-                                <div class="input-group">
-                                    <textarea class="form-control" aria-label="With textarea"></textarea>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-secondary btn-sm">Save!</button>
-                        </div>
+                        <h2>Find recipes based on your health goals!<span class="member-name"></span></h2>
+                        <form class="form">
+                          <div class="form-group">
+                            <label for="coloricNeeds">Caloric Needs</label>
+                            <input type="text" class="form-control" id="caloric-input" placeholder="Required">
+                          </div>
+                          <div class="form-group">
+                            <label for="diet">Diet Type</label>
+                            <input type="text" class="form-control" id="diet-type" placeholder="Optional">
+                            <small  class="form-text text-muted">
+                              Enter a diet that the meal plan has to adhere to, e.g. "vegetarian", "vegan", "paleo" etc.
+                            </small>
+                          </div>
+                          <div class="form-group">
+                            <label for="exclude" >Exclude</label>
+                            <input type="text" class="form-control" id="exclude" placeholder="Optional">
+                            <small  class="form-text text-muted">
+                              A comma-separated list of allergens or ingredients that must be excluded.
+                            </small>
+                          </div>
+                          <button type="submit" class="btn btn-default bg-primary mb-3 text-white">Submit</button>
+                        </form>
+                        <div class="recipe-area"></div>
+                        <div class="nutrition-area"></div>
                     </div>
                 </div>
             </div>
