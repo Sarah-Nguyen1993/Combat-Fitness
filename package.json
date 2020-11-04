@@ -1,0 +1,23 @@
+{
+  "name": "fitness-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarah-Nguyen1993/Fitness-Tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sarah-Nguyen1993/Fitness-Tracker/issues"
+  },
+  "homepage": "https://github.com/Sarah-Nguyen1993/Fitness-Tracker#readme",
+  "dependencies": {
+    "fitness-health-calculations": "^1.0.2"
+  }
+}
