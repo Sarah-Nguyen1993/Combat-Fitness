@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Sarah-Nguyen1993/Fitness-Tracker#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "fitness-health-calculations": "^1.0.2"
   }
 }
