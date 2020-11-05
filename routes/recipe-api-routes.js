@@ -11,15 +11,19 @@ module.exports = function(app){
         });
     });
 
-    app.post("api/recipes", function(req,res){
+    app.post("/api/recipes", function(req,res){
         db.Recipe.create({
             title: req.body.title, 
             prep_time: req.body.prep_time, 
             servings: req.body.servings,
             sourceUrl: req.body.sourceUrl
-        }).then(dbRecipe => {
+        }, 
+        ).then(dbRecipe => {
             res.json(dbRecipe)
-        })
+        }).catch(err => {
+            console.log(err);
+            res.status(500).end();
+        });
     })
 
     // app.delete("/api/recipes/:id", function(req,res){
