@@ -18,24 +18,55 @@ body .bg-img {
 /* body nav {
   background: rgba(223, 125, 14, 0.1);
 } */
-body nav .navbar-nav a {
-  font-size: 25px;
+body nav {
+  font-size: 15px;
   letter-spacing:.5rem;
+  text-align: left;
   position: center;
   text-transform: uppercase;
-  color: rgb(255, 255, 255) !important;
+  background-color: #e47c06 !important;
  
 }
+a:link {
+  color: #f3ebeb;
+}
+
+/* visited link */
+a:visited {
+  color: rgb(243, 239, 239);
+}
+a:hover {
+  color: rgb(3, 1, 0);
+}
+
 
 .fh5co-banner-text-box .quote-box {
-  max-width: 455px;
-  padding: 90px 0;
+  max-width: 855px;
+  max-height: 400px;
+  padding: 90px 200;
 }
-.fh5co-banner-text-box .quote-box h2 {
+
+#combat {
   font-family: 'Lato', sans-serif;
   font-weight: 700;
+  text-shadow: 8px 8px 6px #b64c05;
   color: #fff;
   font-size: 60px;
+}
+
+.fh5co-banner-text-box .quote-box h2 {
+  font-family: 'Lato', sans-serif, italic;
+  font-weight: 700;
+  color: #fff;
+  font-size: 0px;
+  background-image: url("css/images/about-us-bg.jpg");
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: top, right;
+  background-size: 70%, 100%;
+  box-shadow: 10px 10px 20px #cc6505;
+
+  
 }
 .fh5co-banner-text-box .quote-box h2 span {
   color: #ff8013;
@@ -50,16 +81,48 @@ body nav .navbar-nav a {
   top: 0;
   background-repeat: no-repeat;
 }
+#bulk-img {
+    background: url("css/images/gym2.jpg");
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: 60% 100%;
+    padding: 80px 20px;
+    /* padding-top: 60px; */
+    position: left;
+    box-shadow: 10px 10px 20px #cc6505;
+  }
 
-.fh5co-calc, .fh5co-about-us {
-  background: url("stylesheets/css/images/about-bg.jpg");
+#lean-img{
+  background: url("css/images/g1.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 30% 100%;
+  padding: 80px 0;
+  padding-top: 60px;
+  position: right;
+  
+}
+
+
+#hitt-img{
+  background: url("css/images/rode-gym.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 30% 100%;
+  padding: 80px 0;
+  padding-top: 60px;
+  position: right;
+  box-shadow: 10px 10px 20px #cc6505;
+}
+/* .fh5co-calc, .fh5co-about-us {
+  background: url("css/images/about-bg.jpg");
   background-repeat: no-repeat;
   background-position: left;
   background-size: 100% 100%;
-  padding: 50px 0;
-  padding-top: 30px;
+  padding: 80px 0;
+  padding-top: 60px;
   position: left;
-}
+} */
 .fh5co-calc figure, .fh5co-about-us figure {
   margin-top: -70px !important;
 }
