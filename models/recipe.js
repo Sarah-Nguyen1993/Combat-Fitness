@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes){
     const Recipe = sequelize.define("Recipe", {
         title: DataTypes.STRING, 
-        serving: DataTypes.STRING, 
+        serving: DataTypes.INTEGER, 
         prep_time: DataTypes.STRING, 
         sourceUrl: DataTypes.STRING
     });
