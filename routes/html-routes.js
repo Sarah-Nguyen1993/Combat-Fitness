@@ -25,8 +25,8 @@ module.exports = function(app) {
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   // Need to change to progress/home html page
-  app.get("/home", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/home.html"));
+  app.get("/members", isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/members.html"));
   });
 
   app.get("/bulk", function(req, res) {
@@ -41,7 +41,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/hiit.html"));
   });
 
-  app.get("/members", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/members.html"));
+  app.get("/home", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 };
