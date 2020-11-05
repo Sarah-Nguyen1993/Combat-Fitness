@@ -30,10 +30,11 @@ module.exports = function (app) {
     })
 
     app.post("/api/recipes/:id", function (req, res) {
+        console.log(req.body)
         db.Recipe.create({
             title: req.body.title,
             prep_time: req.body.prep_time,
-            servings: req.body.servings,
+            serving: parseInt(req.body.servings),
             sourceUrl: req.body.sourceUrl,
             UserId: req.params.id
         })
