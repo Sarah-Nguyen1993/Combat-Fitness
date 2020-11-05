@@ -8,8 +8,8 @@ $.get("/api/lean").then(response => {
         console.log("get videos")
 
         const info = $(`
-            <div class="col s3">
-            <iframe width="50%" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="col-6 m-6 p-2">
+            <iframe width="100%" height="auto" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>           
         `)
         videoList.append(info);

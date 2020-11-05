@@ -105,21 +105,21 @@ function calories(){
           const {title, readyInMinutes, servings, sourceUrl } = meals[order]
           console.log(title, readyInMinutes, servings, sourceUrl);
           const savedRecipe = {
-            title, 
+            title: title, 
             prep_time: readyInMinutes, 
-            servings,
-            sourceUrl
+            servings: servings,
+            sourceUrl: sourceUrl
           }
-          // $.post("/api/recipes", 
-          // {title, readyInMinutes, servings, sourceUrl },
-          // ).then(() => location.reload() )
-          $.ajax("/api/recipes", {
-            type: "POST",
-            data: savedRecipe
-          }).then( () => location.reload())
+         
+          $.get("/api/user_data").then(function (user) {
+            const userID = user.id;
+            $.post("/api/recipes/" + userID, savedRecipe)
+            .then(data => {
+              alert("Adding recipe...")
+            })
+          });
         })
-       
-       
+        
       });
     };
     function nutritionRenderer(data){
