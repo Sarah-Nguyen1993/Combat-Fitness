@@ -1,18 +1,20 @@
-
 $(document).ready(function () {
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
-  $.get("/api/user_data").then(function (data) {
-    $(".member-name").text(data.email);
-  });
- 
+
   const form = $(".form");
   const recipes = $(".recipe-area");
   const nutrition = $(".nutrition-area");
   let caloricInput = $("#caloric-input");
   let dietType = $("#diet-type");
   let exclude = $("#exclude");
-  form.on("submit", function (event){
+  
+  //GET request to figure out which user is logged in
+  // and updates the HTML on the page
+  $.get("/api/user_data").then(function (data) {
+    $(".member-name").text(data.email);
+  });
+
+  //When form is subtmited, an api call to the backend is made to find recipes
+  form.on("submit", function (event) {
     event.preventDefault();
     const recipeInfo = {
       calories: caloricInput.val().trim(),
@@ -20,43 +22,25 @@ $(document).ready(function () {
       exclusion: exclude.val().trim()
     };
 
-    if (!recipeInfo.calories){
+    if (!recipeInfo.calories) {
       return;
     }
-  
-    getRecipe(recipeInfo.calories, recipeInfo.dietType, recipeInfo.exclusion);
-    caloricInput.val("");
-    dietType.val("");
-    exclude.val("");
-  });
 
-  
-  function getRecipe(caloricInput, dietType, exclude) {
-    const settings = {
-      "async": true,
-      "crossDomain": true,
-      "url": "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/mealplans/generate?timeFrame=day" + "&targetCalories=" + caloricInput + "&diet=" + dietType + "&exclude=" + exclude,
-      "method": "GET",
-      "headers": {
-        "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
-        "x-rapidapi-key": "de8c4e91e0msh15392d59da6b8cap125fcfjsn63f81a1308e8"
-      }
-    }
+    $.post("/recipes", recipeInfo)
+      .then(data => {
+        console.log(data);
+        renderRecipes(data);
+        nutritionRenderer(data)
+      })
+  })
 
-    $.ajax(settings).done(function (response) {
-      console.log(response);
-      recipeRenderer(response);
-      nutritionRenderer(response);
-     
-    });
-  }
-
-  function recipeRenderer(data){
+  //Recipes found from external api call are rendered on the page
+  function renderRecipes(data) {
     const meals = data.meals;
-    //const savedMeals = [];
     meals.map(meal => {
       console.log(meals.indexOf(meal))
-      const {title, readyInMinutes, servings, sourceUrl } = meal;
+      const { title, readyInMinutes, servings, sourceUrl } = meal;
+      console.log(typeof(servings))
       recipes.append(
         $("<div>").append(
           $("<h2>").text(title),
@@ -67,30 +51,33 @@ $(document).ready(function () {
         )
       );
 
-      $(`#${meals.indexOf(meal)}`).click( function(){
-        console.log(meals.indexOf(meal))
+      //When hit save button, the recipe will be saved to the database
+      $(`#${meals.indexOf(meal)}`).click(function () {
         const order = meals.indexOf(meal);
-        const {title, readyInMinutes, servings, sourceUrl } = meals[order]
+        const { title, readyInMinutes, servings, sourceUrl } = meals[order]
         console.log(title, readyInMinutes, servings, sourceUrl);
         const savedRecipe = {
-          title, 
-          prep_time: readyInMinutes, 
-          servings,
-          sourceUrl
-        }
-        // $.post("/api/recipes", 
-        // {title, readyInMinutes, servings, sourceUrl },
-        // ).then(() => location.reload() )
-        $.ajax("/api/recipes", {
-          type: "POST",
-          data: savedRecipe
-        }).then( () => location.reload())
+          title: title,
+          prep_time: readyInMinutes,
+          servings: servings,
+          sourceUrl: sourceUrl,
+        };
+        
+        $.get("/api/user_data").then(function (user) {
+          mem
+          $.post("/api/recipes/" + userID, savedRecipe)
+            .then(data => {
+              console.log(data);
+              alert("Adding recipe...");
+            })
+        });
+        
       })
-     
-     
     });
   };
-  function nutritionRenderer(data){
+
+  //Nutrition information is rendered too
+  function nutritionRenderer(data) {
     nutrition.append(
       $("<h2>").text("Nutrition Summary:"),
       $("<p>").text("Total calories: " + data.nutrients.calories),
@@ -99,4 +86,5 @@ $(document).ready(function () {
       $("<p>").text("Total protein: " + data.nutrients.protein),
     );
   };
+
 });
