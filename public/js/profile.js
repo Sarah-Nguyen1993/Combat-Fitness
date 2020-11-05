@@ -14,10 +14,7 @@ $(document).ready(function () {
                     <a href = '${meal.prep_time}'>Recipe</a>
                 `
                 })
-            )
-            
-           
-            
+            )    
           })
       });
 })
