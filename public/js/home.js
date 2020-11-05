@@ -1,14 +1,36 @@
 $(document).ready(function () {
+
+  $('#calorie-calculator').submit(function(event){
+    event.preventDefault();
+    calories();
+    $("#hide3").removeClass("hide")
+  });
+function calories(){
+
+  let age = parseInt($('#age').val());
+  let sex = $('input[name="sex"]:checked').val();
+  let weight = parseFloat($('#weight').val()) * 0.453592;
+  let height = parseFloat($("#inches").val()) * 2.54;
+  let activity = parseFloat($('.activity_level').val());
+  let goal = parseInt($('.gain_loss_amount').val());
   
+  let result;
+  
+	if (sex === 'male') {
+    result = (88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age)) * activity;
+  } else {
+    result = (447.593 + (9.247 * weight) + (3.098 * height) - (4.33 * age)) * activity;
+  }
+  
+  result = Math.round(result + goal);
+  $("#display").text(result)
+  console.log(result) 
+  
+  
+}
+     
     // This file just does a GET request to figure out which user is logged in
     // and updates the HTML on the page
-    $("#calculate").on("click", function(){
-      console.log("works")
-      $("#hide3").removeClass("hide")
-        calories()
-    })
-
-   
     $.get("/api/user_data").then(function (data) {
       $(".member-name").text(data.email);
     });
