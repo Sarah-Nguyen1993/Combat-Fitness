@@ -64,7 +64,7 @@ $(document).ready(function () {
         };
         
         $.get("/api/user_data").then(function (user) {
-          mem
+          const userID = user.id;
           $.post("/api/recipes/" + userID, savedRecipe)
             .then(data => {
               console.log(data);
