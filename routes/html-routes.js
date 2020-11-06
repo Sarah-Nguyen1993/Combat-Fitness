@@ -29,19 +29,19 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/home.html"));
   });
 
-  app.get("/bulk", function(req, res) {
+  app.get("/bulk", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/bulk.html"));
   });
 
-  app.get("/lean", function(req, res) {
+  app.get("/lean", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/lean.html"));
   });
 
-  app.get("/hiit", function(req, res) {
+  app.get("/hiit", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/hiit.html"));
   });
 
-  app.get("/profile", function(req, res) {
+  app.get("/profile", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/profile.html"));
   });
 };
