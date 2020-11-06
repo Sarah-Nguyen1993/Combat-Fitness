@@ -5,3 +5,33 @@
 }
 
 
+body nav .navbar-nav a{
+    font-size: 16px;
+    text-transform: uppercase;
+    /* color: #fff !important; */
+    color: #fff(170, 168, 168) !important;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+  }
+  
+  body nav .navbar-nav a:hover {
+    color: #FF8013 !important;
+  
+  }
+
+  
+  a, a:hover {
+    color: #FF8013;
+  }
+  h1 {
+    color: #FF8013;
+    text-align: center;
+    margin-top: 20px;
+    padding: 20px;
+  }
+  .fh5co-banner-text-box {
+    position: relative;
+    max-height: 120px;
+  }
