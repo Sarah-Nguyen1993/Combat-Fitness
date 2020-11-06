@@ -9,11 +9,31 @@ form.login {
  * URL: https://freehtml5.co
  */
 
+ #web-name{
+  color: #ff8013;
+  font-size: 30 ;
+  font-family: 'Arbutus', cursive;
+
+ }
+
+ .jumbotron{
+  background: #f39c51;
+  padding:15px;
+  margin-top:20px;
+  border-radius: .5rem;
+ }
+
+ #question-box{
+   background-color:#fcc290;
+   ;
+ }
+
  body {
   font-family: 'Lato', sans-serif;
   overflow: hidden;
   overflow-y: scroll;
   background-color: #000;
+  color: white;
 }
 body .bg-img {
   background-repeat: no-repeat;
@@ -46,14 +66,36 @@ body nav .navbar-nav {
 } */
 
 a, a:hover {
-  color: #ff8013;
+  color: #ff7802;
 }
 
 h1 {
-  color: #ff8013;
+  color: black;
+  font-weight: bolder; 
+  font-size:40px;
+  font-family: 'Arbutus', cursive;
   text-align: center;
   margin-top: 20px;
   padding: 20px;
+}
+h2{
+  color:#ff7802; 
+}
+
+.lead{
+  font-weight: bold;
+}
+
+.question-box{
+  background-color: aliceblue;
+ 
+}
+
+.btn{
+  background-color: black;
+}
+.btn:hover{
+  background-color: #ff8013
 }
 
 /* .fh5co-banner-text-box {

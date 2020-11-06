@@ -13,13 +13,14 @@
         integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
         crossorigin="anonymous"></script>
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Arbutus&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/style.css">
     <title>Home</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="/home">Combat Fitness</a>
+        <a class="navbar-brand" id ="web-name" href="/home">Combat Fitness</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,6 +32,7 @@
                 <a class="nav-link" href="/lean">Lean</a>
                 <a class="nav-link" href="/hiit">HIIT</a>
                 <a class="nav-link" href="/profile">Profile</a>
+                <a class="nav-link" href="/logout">Log out</a>
             </div>
         </div>
       </div>
@@ -43,84 +45,91 @@
                 </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <form id="calorie-calculator">
-                    <h3>Calculate total caloric needs!</h3>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Age</span>
+        <div class="row ">
+            <div class="col-md-8">
+                <div class="jumbotron jumbotron-fluid" id ="question-box">
+                    <div class="container">
+                        <form id="calorie-calculator">
+                            <h3>Calculate total caloric needs!</h3>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Age</span>
+                                </div>
+                                <input type="number" name="age" id="age" class="form-control" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="radio-group">
+                                <label for="sex">Sex</label>
+                                <input type="radio" name="sex" value="male" id="male" checked="checked"> <label
+                                    for="male">Male</label>
+                                <input type="radio" name="sex" value="female" id="female"> <label for="female">Female</label>
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Height</span>
+                                </div>
+                                <input type="number" name="inches" id="inches" class="form-control height"
+                                    placeholder="Enter your height in inches" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="input-group input-group-sm mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Weight</span>
+                                </div>
+                                <input type="number" name="weight" id="weight" class="form-control weight"
+                                    placeholder="Enter your weight in pounds" aria-label="Sizing example input"
+                                    aria-describedby="inputGroup-sizing-sm">
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Activity Level</span>
+                                </div>
+                                <select class="custom-select activity_level" name="activity_level" id="inputGroupSelect01"
+                                    aria-label="Example select with button addon">
+                                    <option selected>How active are you during the week?</option>
+                                    <option value="1.2">sedentary - little to no exercise + work a desk job</option>
+                                    <option value="1.375">light - light exercise 1-3 days/week</option>
+                                    <option value="1.55">moderate - moderate exercise 3-5 days/week</option>
+                                    <option value="1.725">heavy - heavy exercise 6-7 days/week</option>
+                                    <option value="1.9">extreme - very heavy exercise, hard labor job, training 2x/day
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Goal</span>
+                                </div>
+                                <select name="gain_loss_amount" class="custom-select gain_loss_amount" id="inputGroupSelect02"
+                                    aria-label="Example select with button addon">
+                                    <option value="">Select a Goal</option>
+                                    <option value="-1000">Lose 2 Pounds per Week</option>
+                                    <option value="-750">Lose 1.5 Pounds per Week</option>
+                                    <option value="-500">Lose 1 Pounds per Week</option>
+                                    <option value="-250">Lose 0.5 Pounds per Week</option>
+                                    <option value="0">Stay the Same Weight</option>
+                                    <option value="250">Gain 0.5 Pound per Week</option>
+                                    <option value="500">Gain 1 Pound per Week</option>
+                                    <option value="750">Gain 1.5 Pounds per Week</option>
+                                    <option value="1000">Gain 2 Pounds per Week</option>
+                                </select>
+                            </div>
+                            <button type="sumbit" class="btn btn-primary btn-sm">Calculate!</button>
+                        </form>
+                        <br>
+                        <div class="card border-primary mb-3 hide" id="hide3" style="max-width: 18rem;">
+                            <div class="card-header">Total Calories:</div>
+                            <div class="card-body text-primary">
+                                <h1 class="card-text" id="display"></h1>
+                            </div>
                         </div>
-                        <input type="number" name="age" id="age" class="form-control" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="radio-group">
-                        <label for="sex">Sex</label>
-                        <input type="radio" name="sex" value="male" id="male" checked="checked"> <label
-                            for="male">Male</label>
-                        <input type="radio" name="sex" value="female" id="female"> <label for="female">Female</label>
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Height</span>
-                        </div>
-                        <input type="number" name="inches" id="inches" class="form-control height"
-                            placeholder="Enter your height in inches" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group input-group-sm mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Weight</span>
-                        </div>
-                        <input type="number" name="weight" id="weight" class="form-control weight"
-                            placeholder="Enter your weight in pounds" aria-label="Sizing example input"
-                            aria-describedby="inputGroup-sizing-sm">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Activity Level</span>
-                        </div>
-                        <select class="custom-select activity_level" name="activity_level" id="inputGroupSelect01"
-                            aria-label="Example select with button addon">
-                            <option selected>How active are you during the week?</option>
-                            <option value="1.2">sedentary - little to no exercise + work a desk job</option>
-                            <option value="1.375">light - light exercise 1-3 days/week</option>
-                            <option value="1.55">moderate - moderate exercise 3-5 days/week</option>
-                            <option value="1.725">heavy - heavy exercise 6-7 days/week</option>
-                            <option value="1.9">extreme - very heavy exercise, hard labor job, training 2x/day
-                            </option>
-                        </select>
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-sm">Goal</span>
-                        </div>
-                        <select name="gain_loss_amount" class="custom-select gain_loss_amount" id="inputGroupSelect02"
-                            aria-label="Example select with button addon">
-                            <option value="">Select a Goal</option>
-                            <option value="-1000">Lose 2 Pounds per Week</option>
-                            <option value="-750">Lose 1.5 Pounds per Week</option>
-                            <option value="-500">Lose 1 Pounds per Week</option>
-                            <option value="-250">Lose 0.5 Pounds per Week</option>
-                            <option value="0">Stay the Same Weight</option>
-                            <option value="250">Gain 0.5 Pound per Week</option>
-                            <option value="500">Gain 1 Pound per Week</option>
-                            <option value="750">Gain 1.5 Pounds per Week</option>
-                            <option value="1000">Gain 2 Pounds per Week</option>
-                        </select>
-                    </div>
-                    <button type="sumbit" class="btn btn-primary btn-sm">Calculate!</button>
-                </form>
-                <br>
-                <div class="card border-primary mb-3 hide" id="hide3" style="max-width: 18rem;">
-                    <div class="card-header">Total Calories:</div>
-                    <div class="card-body text-primary">
-                        <h1 class="card-text" id="display"></h1>
                     </div>
                 </div>
+                
             </div>
-            <div class="col-md-6">
-                <div class="jumbotron jumbotron-fluid">
+        </div>
+        <div class="row ">
+            <div class="col-md-8">
+                <div class="jumbotron jumbotron-fluid " id ="question-box">
                     <div class="container">
                         <h2>Find recipes based on your health goals!</h2>
                         <form class="form">
@@ -143,25 +152,30 @@
                                     A comma-separated list of allergens or ingredients that must be excluded.
                                 </small>
                             </div>
-                            <button type="submit" class="btn btn-default bg-primary mb-3 text-white">Submit</button>
+                            <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                            <br>
+                            <br>
                         </form>
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="card text-white hide2 bg-primary mb-3 hide" style="max-width: 18rem;">
-                                    <div class="card-header" id="head1">Header</div>
+                            <div class="col-md-8">
+                                <div class="card hide2  mb-3 hide" style="max-width: 18rem;">
+                                    <div class="card-header" id="head1">Recipes</div>
                                     <div class="card-body recipe-area">
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="card hide3 text-white bg-primary mb-3 hide" style="max-width: 18rem;">
-                                    <div class="card-header">Header</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="card hide3 mb-3 hide" style="max-width: 18rem;">
+                                    <div class="card-header">Nutrition Summary</div>
                                     <div class="card-body nutrition-area">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                   
                 </div>
             </div>
         </div>
