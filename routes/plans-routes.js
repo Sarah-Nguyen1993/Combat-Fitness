@@ -1,5 +1,6 @@
 const axios = require("axios");
 require("dotenv").config();
+const db = require("../models");
 
 module.exports = function (app) {
 
@@ -7,7 +8,7 @@ module.exports = function (app) {
 
         axios.get("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=workout%20plans%20for%20bulking%20up%20&type=video&key=" + process.env.YOUTUBE_API_KEY)
             .then(response => {
-                console.log(response.data)
+               // console.log(response.data)
                 res.json(response.data.items);
             }).catch(err => {
                 console.log(err);
@@ -32,6 +33,42 @@ module.exports = function (app) {
         }).catch(err => {
             console.log(err);
         });
+    });
+
+    app.post("/api/plans/:id", function (req, res) {
+        console.log(req.body);
+        db.Video.create({
+            videoUrl: videoUrl,
+            UserId: req.params.id
+        })
+        .then(dbVideo => {
+            res.json(dbVideo)
+        }).catch(err => {
+            console.log(err);
+            res.status(500).end();
+        });
+    })
+
+    app.get("/api/plans/:id", function (req, res) {
+        db.Video.findAll({
+            where: {userId: req.params.id},
+            include:[db.User]
+        }).then(function(dbVideo){
+            res.json(dbVideo)
+        }).catch(err => {
+            console.log(err);
+            res.status(500).end();
+        });
+    });
+
+    app.delete("/api/plans/:id", function(req,res){
+        db.Video.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(dbVideo => {
+            res.json(dbVideo)
+        })
     });
 
 };
