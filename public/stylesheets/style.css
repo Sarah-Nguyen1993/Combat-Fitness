@@ -33,6 +33,7 @@ form.login {
   overflow: hidden;
   overflow-y: scroll;
   background-color: #000;
+  color: white;
 }
 body .bg-img {
   background-repeat: no-repeat;
@@ -65,7 +66,7 @@ body nav .navbar-nav {
 } */
 
 a, a:hover {
-  color: #ff8013;
+  color: #ff7802;
 }
 
 h1 {
@@ -77,6 +78,9 @@ h1 {
   margin-top: 20px;
   padding: 20px;
 }
+h2{
+  color:#ff7802; 
+}
 
 .lead{
   font-weight: bold;
@@ -85,6 +89,13 @@ h1 {
 .question-box{
   background-color: aliceblue;
  
+}
+
+.btn{
+  background-color: black;
+}
+.btn:hover{
+  background-color: #ff8013
 }
 
 /* .fh5co-banner-text-box {
