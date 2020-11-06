@@ -9,6 +9,25 @@ form.login {
  * URL: https://freehtml5.co
  */
 
+ #web-name{
+  color: #ff8013;
+  font-size: 30 ;
+  font-family: 'Arbutus', cursive;
+
+ }
+
+ .jumbotron{
+  background: #f39c51;
+  padding:15px;
+  margin-top:20px;
+  border-radius: .5rem;
+ }
+
+ #question-box{
+   background-color:#fcc290;
+   ;
+ }
+
  body {
   font-family: 'Lato', sans-serif;
   overflow: hidden;
@@ -50,10 +69,22 @@ a, a:hover {
 }
 
 h1 {
-  color: #ff8013;
+  color: black;
+  font-weight: bolder; 
+  font-size:40px;
+  font-family: 'Arbutus', cursive;
   text-align: center;
   margin-top: 20px;
   padding: 20px;
+}
+
+.lead{
+  font-weight: bold;
+}
+
+.question-box{
+  background-color: aliceblue;
+ 
 }
 
 /* .fh5co-banner-text-box {

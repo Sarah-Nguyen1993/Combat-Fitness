@@ -62,16 +62,16 @@ function calories(){
     function renderRecipes(data) {
       const meals = data.meals;
       meals.map(meal => {
-        console.log(meals.indexOf(meal))
         const { title, readyInMinutes, servings, sourceUrl } = meal;
         recipes.append(
           $("<div>").append(
-            $("<h2>").text(title),
+            $("<h5>").text(title),
             $("<p>").text("Preparation Time: " + readyInMinutes + " minutes"),
             $("<p>").text("Serving: " + servings),
             $("<p>").append(`<a href = '${sourceUrl}', target = '_blank'>Recipe`),
-            $(`<button class ='btn btn-default save-btn'id =${meals.indexOf(meal)} >`).text("Save")
-          )
+            $(`<button class ='btn btn-primary btn-sm save-btn'id =${meals.indexOf(meal)} >`).text("Save"),
+            $("<hr>"),
+            )
         );
   
         //When hit save button, the recipe will be saved to the database
@@ -101,11 +101,10 @@ function calories(){
     //Nutrition information is rendered too
     function nutritionRenderer(data) {
       nutrition.append(
-        $("<h2>").text("Nutrition Summary:"),
-        $("<p>").text("Total calories: " + data.nutrients.calories),
-        $("<p>").text("Total carbohydrates: " + data.nutrients.carbohydrates),
-        $("<p>").text("Total fat: " + data.nutrients.fat),
-        $("<p>").text("Total protein: " + data.nutrients.protein),
+        $("<p>").text("Total calories: " + data.nutrients.calories + "g"),
+        $("<p>").text("Total carbohydrates: " + data.nutrients.carbohydrates + "g"),
+        $("<p>").text("Total fat: " + data.nutrients.fat + "g"),
+        $("<p>").text("Total protein: " + data.nutrients.protein + "g"),
       );
     };
 });
