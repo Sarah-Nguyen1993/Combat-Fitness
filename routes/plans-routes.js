@@ -26,7 +26,7 @@ module.exports = function (app) {
 
     app.get("/api/hiit", function (req, res) {
 
-        axios.get("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=hiit%20workouts&type=video&key=" + process.env.API_KEY)
+        axios.get("https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=10&order=relevance&q=hiit%20workouts&type=video&key=" + process.env.YOUTUBE_API_KEY)
         .then(response => {
             res.json(response.data.items);
         }).catch(err => {
