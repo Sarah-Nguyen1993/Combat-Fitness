@@ -35,3 +35,6 @@ body nav .navbar-nav a{
     position: relative;
     max-height: 120px;
   }
+  .recipe-area {color:black}
+  .nutrition-area {color: black}
+  .card-header {color:black}
