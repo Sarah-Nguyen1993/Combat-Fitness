@@ -36,9 +36,9 @@ module.exports = function (app) {
     });
 
     app.post("/api/plans/:id", function (req, res) {
-        console.log(req.body);
+        //console.log(req.body);
         db.Video.create({
-            videoUrl: videoUrl,
+            videoUrl: req.body.videoUrl,
             UserId: req.params.id
         })
         .then(dbVideo => {
