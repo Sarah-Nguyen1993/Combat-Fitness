@@ -22,7 +22,7 @@ https://youtube.googleapis.com/youtube/v3/search
  
  Deployed Link: https://combatfitness.herokuapp.com/
  
- Github Link: https://github.com/Sarah-Nguyen1993/Fitness-Tracker
+ Github Link: https://github.com/Sarah-Nguyen1993/Combat-Fitness
 
 ## Contributors
 
